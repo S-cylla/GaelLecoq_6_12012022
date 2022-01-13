@@ -1,18 +1,23 @@
-const dataFile = async function() {
-    let response = await fetch ("data/photographers.json")
-    if (response.ok) {
-        let photographers = await response.json()
-        console.log(photographers);
-        //getCard(photographers)
-        //displayData(photographers)
-    } else {
-        console.error(`Retour du serveur :`, response.status);
-    }
-}
-dataFile()
+import PhotographerCard from "../factories/templates/photographerCard.js";
 
+const photographersSection = document.querySelector(".photographer_section");
+let photographersArray = [];
 
-getCard(photographers)
+fetch("data/photographers.json")
+  .then((result) => result.json())
+  .then((result) => {
+    result.data;
+    const photographers = result.photographers;
+    photographers.forEach((photographer) => {
+      const Template = new PhotographerCard(photographer);
+      photographersArray.push(Template.getCard());
+    });
+    photographersSection.innerHTML = photographersArray;
+    return photographersArray;
+  })
+  .catch((err) => console.error(`Erreur :`, err));
+
+// photographersSection.innerHTML = photographersArray
 
 /* async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json

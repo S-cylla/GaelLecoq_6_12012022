@@ -1,16 +1,20 @@
-import Photographer from "../models/photograph.js";
+export default class PhotographerCard {
+  constructor(photographer) {
+    this._photographer = photographer;
+  }
 
-//getCard(Photographer)
-
-function getCard(photographer) {
-    console.log("ok");
-    const picture = `assets/photographers/${photographer.portrait}`;
-
+  getCard() {
+    const picture = `assets/photographers/${this._photographer.portrait}`;
     return `
-    <img src="${picture}" class="profile-pic">
-    <h2 class="name">${photographer.name}</h2>
-    <h3 class="location">${photographer.city}, ${photographer.country}</h3>
-    <p class="tagline">${photographer.tagline}</p>
-    <span class="price">${photographer.price}</span>
-    `
+            <article class="photographer-card">
+                <a href="photographer.html?id=${this._photographer.id}" class="photographer-link">
+                    <img src="${picture}" class="profile-pic" alt="${this._photographer.name}">
+                </a>
+                <h2 class="name">${this._photographer.name}</h2>
+                <h3 class="location">${this._photographer.city}, ${this._photographer.country}</h3>
+                <p class="tagline">${this._photographer.tagline}</p>
+                <span class="price">${this._photographer.price}€/jour</span>
+            </article>
+            `;
+  }
 }
