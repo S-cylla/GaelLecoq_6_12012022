@@ -1,3 +1,6 @@
+// Crée le template de l'affichage de chaque photographe sur la page d'accueil
+//import Photographer from "../models/photograph.js";
+
 export default class PhotographerCard {
   constructor(photographer) {
     this._photographer = photographer;

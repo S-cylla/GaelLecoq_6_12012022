@@ -24,7 +24,9 @@
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    position: absolute;
+    top: auto;
+    left: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +77,47 @@ form input {
     border-radius: 5px;
 }
 
+#sort-by {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: 1.5em;
+}
+
+#listbox-container {
+    background-color: #901C1C;
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 150px;
+    min-height: 50px;
+    padding: 10px;
+}
+
+#listbox-current-option::after{
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;   
+    content: "\f078";
+    color: #FFF;
+    margin-left: 20px;
+}
+
+#listbox {
+    display: none;
+}
+
+.listbox-option {
+    padding: 10px;
+    border-bottom: 1px solid #FFF;
+}
+
 .gallery-section {
     display: flex;
     flex-wrap: wrap;
@@ -85,6 +128,7 @@ form input {
 .gallery-section img {
     width: 350px;
     height: 300px;
+    border-radius: 5px;
 }
 
 .media-caption {
