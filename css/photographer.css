@@ -74,3 +74,22 @@ form input {
     border: none;
     border-radius: 5px;
 }
+
+.gallery-section {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 95px;
+    column-gap: 70px;
+}
+
+.gallery-section img {
+    width: 350px;
+    height: 300px;
+}
+
+.media-caption {
+    display: flex;
+    justify-content: space-between;
+    color: #901C1C;
+    font-size: 2em;
+}
