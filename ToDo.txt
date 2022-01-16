@@ -24,7 +24,7 @@ Pages photographes :
 		. Formulaire : modale qui s'affiche par-dessus le reste --OK
 		. Champs: nom, adresse mail, message --OK
 		. Contenu des champs s'affiche dans les logs de la console --OK
-		. Vérifier validité des champs avant envoi
+		. Vérifier validité des champs avant envoi --OK
 Accessibilité : 
 	. Photos doivent comporter des descriptions textuelles (les inclure dans la page) --OK
 	. Nav au clavier 
