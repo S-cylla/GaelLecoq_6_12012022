@@ -15,17 +15,21 @@ export default class PhotographerMedia {
     return this._image ? this._image : this._video;
   }
 
+  get price() {
+    return this._price;
+  }
+
   getImg() {
     const miniature = `assets/images/${this._photographerId}/${this.link}`;
-    const likesNumber = parseInt(this._likes, 10);
     return `
       <article>
         <img src="${miniature}" class="gallery-img" alt="${this._alt}">
         <div class="media-caption">
             <span class="title">${this._title}</span>
             <p class="likes">
-                <span class="likes-number">${likesNumber} </span>
-                <i aria-label=”likes” class="fas fa-heart"></i></p>
+              <span class="likes-number">${this._likes} </span>
+              <i aria-label=”likes” class="fas fa-heart like-icon"></i>
+            </p>
         </div>
       </article>
       `;
@@ -40,7 +44,10 @@ export default class PhotographerMedia {
         </video>
         <div class="media-caption">
             <span class="title">${this._title}</span>
-            <span class="likes">${this._likes} <i aria-label=”likes” class="fas fa-heart"></i></span>
+            <p class="likes">
+              <span class="likes-number">${this._likes} </span>
+              <i aria-label=”likes” class="fas fa-heart like-icon"></i>
+            </p>
         </div>
       </article>
       `;

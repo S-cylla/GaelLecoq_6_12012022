@@ -1,0 +1,37 @@
+Forker repo --OK
+Utiliser le pattern Factory Method
+Index :
+	. Logo : lien vers page d'accueil --OK
+	. Liste photographes avec :
+		. Nom --OK
+		. Slogan --OK
+		. Localisation --OK
+		. Prix/jour --OK
+		. Image miniature de leur choix (redirige vers page photographe) --OK
+Pages photographes :
+	. Logo : lien vers page d'accueil --OK
+	. Galerie des travaux du photographe --OK
+	. Si vidéo, montrer une image miniature dans la galerie --OK
+	. Chaque média comprend un titre et un nombre de likes --OK
+	. Icône "like" fonctionnel : incrémente le nombre de likes affiché --OK
+	. Nombre likes total : sommes des likes de chaque média --OK
+	. Médias peuvent être triés par popularité ou par titre
+	. Clic sur média : s'affiche dans une lightbox
+		. Croix dans le coin pour fermer la fenêtre
+		. Boutons de nav pour passer d'un élément à l'autre
+		. Touches fléchées pour nav
+	. Bouton contact
+		. Formulaire : modale qui s'affiche par-dessus le reste --OK
+		. Champs: nom, adresse mail, message --OK
+		. Contenu des champs s'affiche dans les logs de la console --OK
+		. Vérifier validité des champs avant envoi
+Accessibilité : 
+	. Photos doivent comporter des descriptions textuelles (les inclure dans la page) --OK
+	. Nav au clavier 
+	. HTML sémantique
+	. ARIA pour chaque élément personnalisé
+	. Code passe validation AChecker sans "known issues"
+	. Gestion des événements (clics, pressions au clavier) doit être configurée (KeyboardEvent.key ou KeyboardEvent.code)
+	. Utiliser lecteur d'écran
+
+JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écran) --OK

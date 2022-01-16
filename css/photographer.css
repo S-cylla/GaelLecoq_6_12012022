@@ -137,3 +137,17 @@ form input {
     color: #901C1C;
     font-size: 2em;
 }
+
+.photographer-info {
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    width: 376px;
+    height: 89px;
+    background-color: #DB8876;
+    border-radius: 5px;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

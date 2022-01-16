@@ -2,9 +2,11 @@
 import PhotographerMedia from "../factories/models/PhotographerMedia.js";
 
 const gallerySection = document.querySelector(".gallery-section");
+const photographerInfo = document.querySelector(".photographer-info");
 
 let pageID = 0;
 let galleryArray = [];
+let photographerPrice = 0;
 
 getPageId();
 
@@ -12,6 +14,13 @@ fetch("data/photographers.json")
   .then((result) => result.json())
   .then((result) => {
     result.data;
+    const photographers = result.photographers;
+    photographers.forEach((photographer) => {
+      if (photographer.id === pageID) {
+        photographerPrice = photographer.price;
+      }
+      return photographerPrice;
+    });
     const media = result.media;
     let i = 0;
     media.forEach((item) => {
@@ -26,7 +35,7 @@ fetch("data/photographers.json")
         gallerySection.innerHTML = galleryArray;
       }
     });
-    console.log("Nombre de médias à afficher =", i);
+    totalLikes();
     likeIncrement();
   })
   .catch((err) => console.error(`Erreur :`, err));
@@ -37,8 +46,7 @@ function getPageId() {
 }
 
 function likeIncrement() {
-  const likeIcon = document.querySelectorAll(".fa-heart");
-  console.log(likeIcon.length);
+  const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
     heart.addEventListener("click", addLike);
   });
@@ -46,9 +54,25 @@ function likeIncrement() {
 
 function addLike(event) {
   const heart = event.currentTarget;
-  const likesNumberStr = heart.previousElementSibling.innerHTML;
-  let likesNumber = parseInt(likesNumberStr, 10);
+  let likesNumber = parseInt(heart.previousElementSibling.innerHTML, 10);
   likesNumber++;
   heart.previousElementSibling.innerHTML = likesNumber;
-  console.log(likesNumber);
+  totalLikes();
+}
+
+// Affiche le total de likes et le prix dans le aside.photographer-info
+export function totalLikes() {
+  let totalOfLikes = 0;
+  const likeIcon = document.querySelectorAll(".like-icon");
+  likeIcon.forEach((heart) => {
+    let i = parseInt(heart.previousElementSibling.innerHTML, 10);
+    totalOfLikes = totalOfLikes + i;
+  });
+  photographerInfo.innerHTML = `
+                                  <div class="like">
+                                    <span>${totalOfLikes}</span>
+                                    <i aria-label=”likes” class="fas fa-heart"></i>
+                                  </div>
+                                  <div class="daily-price">€ ${photographerPrice} / jour</div>
+                                `;
 }
