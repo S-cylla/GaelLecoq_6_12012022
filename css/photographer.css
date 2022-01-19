@@ -112,23 +112,7 @@ form #submit-form {
     padding: 10px;
 }
 
-#listbox-current-option::after{
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;   
-    content: "\f078";
-    color: #FFF;
-    margin-left: 20px;
-}
-
-#listbox {
-    display: none;
-}
-
-.listbox-option {
+option {
     padding: 10px;
     border-bottom: 1px solid #FFF;
 }

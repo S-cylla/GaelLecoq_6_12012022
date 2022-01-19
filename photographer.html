@@ -43,7 +43,7 @@
                 <textarea class="text-control" name="message" id="message" cols="80" rows="11"></textarea>
                 <span class="error-input" id="error-message"></span>
                 </div>
-              <div id="submit-form" class="contact_button">Envoyer</div>
+              <input type="submit" id="submit-form" class="contact_button"></input>
               <span class="error-input" id="error-submit"></span>
             </form>
           </div>
@@ -53,14 +53,11 @@
 
       <div id="sort-by">
         <label for="listbox-container" id="listbox-label">Trier par</label>
-        <div id="listbox-container" role="button" aria-haspopup="listbox" tabindex="0" aria-expanded="false">
-          <span id="listbox-current-option">Popularité</span>
-          <div role="listbox" id="listbox" tabindex="-1" aria-labelledby="listbox-label" aria-activedescendant="listbox-popularity"> 
-            <div class="listbox-option" role="option" data-sort="popularity" tabindex="-1" id="listbox-popularity">Popularité</div> 
-            <div class="listbox-option" role="option" data-sort="date" tabindex="-1" id="listbox-date">Date</div>
-            <div class="listbox-option" role="option" data-sort="title" tabindex="-1" id="listbox-title">Titre</div>
-          </div>
-        </div>
+        <select id="listbox-container" tabindex="0" aria-expanded="false">
+          <option value="popularity" tabindex="-1" id="listbox-popularity">Popularité</option>
+          <option value="date" tabindex="-1" id="listbox-date">Date</option>
+          <option value="title" tabindex="-1" id="listbox-title">Titre</option>
+        </select>
       </div>
 
       <section class="gallery-section"></section>

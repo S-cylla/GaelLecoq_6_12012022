@@ -22,11 +22,9 @@ fetch("data/photographers.json")
       return photographerPrice;
     });
     const media = result.media;
-    let i = 0;
     media.forEach((item) => {
       if (item.photographerId === pageID) {
         const PhotographerMediaTemplate = new PhotographerMedia(item);
-        i++;
         if (item.image) {
           galleryArray.push(PhotographerMediaTemplate.getImg());
         } else {
@@ -48,16 +46,13 @@ function getPageId() {
 function likeIncrement() {
   const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
-    heart.addEventListener("click", addLike);
+    heart.addEventListener("click", () => {
+      let likesNumber = parseInt(heart.previousElementSibling.innerHTML, 10);
+      likesNumber++;
+      heart.previousElementSibling.innerHTML = likesNumber;
+      totalLikes();
+    });
   });
-}
-
-function addLike(event) {
-  const heart = event.currentTarget;
-  let likesNumber = parseInt(heart.previousElementSibling.innerHTML, 10);
-  likesNumber++;
-  heart.previousElementSibling.innerHTML = likesNumber;
-  totalLikes();
 }
 
 // Affiche le total de likes et le prix dans le aside.photographer-info
@@ -66,7 +61,7 @@ export function totalLikes() {
   const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
     let i = parseInt(heart.previousElementSibling.innerHTML, 10);
-    totalOfLikes = totalOfLikes + i;
+    totalOfLikes += i;
   });
   photographerInfo.innerHTML = `
                                   <div class="like">
