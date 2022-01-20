@@ -8,7 +8,7 @@ fetch("data/photographers.json")
   .then((result) => {
     result.data;
     const photographers = result.photographers;
-    photographers.forEach((photographer) => {
+    photographers.map((photographer) => {
       const Template = new PhotographerCard(photographer);
       photographersArray.push(Template.getCard());
     });

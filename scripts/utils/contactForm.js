@@ -11,7 +11,6 @@ const errorFirst = document.getElementById("error-first"); // Erreur prénom
 const errorLast = document.getElementById("error-last"); // Erreur nom
 const errorEmail = document.getElementById("error-email"); // Erreur e-mail
 const errorMessage = document.getElementById("error-message"); // Erreur message
-const submitButton = document.getElementById("submit-form"); // Bouton d'envoi du formulaire
 const errorSubmit = document.getElementById("error-submit"); // Erreur submit
 
 // Évènements
@@ -121,14 +120,12 @@ function formValidation(e) {
 
 function submitForm() {
   console.log(
-    "Prénom : ",
-    firstNameInput.value,
-    " / Nom : ",
-    lastNameInput.value,
-    " / Email : ",
-    emailInput.value,
-    " / Message : ",
-    messageInput.value
+    `
+    Prénom : ${firstNameInput.value}
+    Nom : ${lastNameInput.value}
+    Email : ${emailInput.value}
+    Message : "${messageInput.value}"
+    `
   );
   contactForm.reset();
   closeModal();

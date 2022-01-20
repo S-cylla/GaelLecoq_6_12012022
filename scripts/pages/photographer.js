@@ -8,6 +8,10 @@ let pageID = 0;
 let galleryArray = [];
 let photographerPrice = 0;
 
+const getPageId = () => {
+  pageID = parseInt(new URLSearchParams(window.location.search).get("id"));
+  return pageID;
+};
 getPageId();
 
 fetch("data/photographers.json")
@@ -38,36 +42,31 @@ fetch("data/photographers.json")
   })
   .catch((err) => console.error(`Erreur :`, err));
 
-function getPageId() {
-  pageID = parseInt(new URLSearchParams(window.location.search).get("id"));
-  return pageID;
-}
-
-function likeIncrement() {
+const likeIncrement = () => {
   const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
     heart.addEventListener("click", () => {
-      let likesNumber = parseInt(heart.previousElementSibling.innerHTML, 10);
+      let likesNumber = parseInt(heart.previousElementSibling.innerHTML);
       likesNumber++;
       heart.previousElementSibling.innerHTML = likesNumber;
       totalLikes();
     });
   });
-}
+};
 
 // Affiche le total de likes et le prix dans le aside.photographer-info
-export function totalLikes() {
+const totalLikes = () => {
   let totalOfLikes = 0;
   const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
-    let i = parseInt(heart.previousElementSibling.innerHTML, 10);
+    let i = parseInt(heart.previousElementSibling.innerHTML);
     totalOfLikes += i;
   });
   photographerInfo.innerHTML = `
-                                  <div class="like">
-                                    <span>${totalOfLikes}</span>
-                                    <i aria-label=”likes” class="fas fa-heart"></i>
-                                  </div>
-                                  <div class="daily-price">€ ${photographerPrice} / jour</div>
-                                `;
-}
+      <div class="like">
+        <span>${totalOfLikes}</span>
+        <i aria-label=”likes” class="fas fa-heart"></i>
+      </div>
+      <div class="daily-price">€ ${photographerPrice} / jour</div>
+    `;
+};
