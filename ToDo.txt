@@ -16,10 +16,10 @@ Pages photographes :
 	. Icône "like" fonctionnel : incrémente le nombre de likes affiché --OK
 	. Nombre likes total : sommes des likes de chaque média --OK
 	. Médias peuvent être triés par popularité ou par titre
-	. Clic sur média : s'affiche dans une lightbox
-		. Croix dans le coin pour fermer la fenêtre
-		. Boutons de nav pour passer d'un élément à l'autre
-		. Touches fléchées pour nav
+	. Clic sur média : s'affiche dans une lightbox --OK
+		. Croix dans le coin pour fermer la fenêtre --OK
+		. Boutons de nav pour passer d'un élément à l'autre --OK
+		. Touches fléchées pour nav --OK
 	. Bouton contact
 		. Formulaire : modale qui s'affiche par-dessus le reste --OK
 		. Champs: nom, adresse mail, message --OK
@@ -28,10 +28,19 @@ Pages photographes :
 Accessibilité : 
 	. Photos doivent comporter des descriptions textuelles (les inclure dans la page) --OK
 	. Nav au clavier 
-	. HTML sémantique
+	. HTML sémantique --OK
 	. ARIA pour chaque élément personnalisé
 	. Code passe validation AChecker sans "known issues"
-	. Gestion des événements (clics, pressions au clavier) doit être configurée (KeyboardEvent.key ou KeyboardEvent.code)
+	. Gestion des événements (clics, pressions au clavier) doit être configurée (KeyboardEvent.key ou KeyboardEvent.code) --OK 
 	. Utiliser lecteur d'écran
 
 JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écran) --OK
+
+
+ISSUES : 
+	. openLightBox : 
+		. element.remove() ou element.parentElement.removeChild(element) ?
+		. Afficher vidéo
+	. dropdown
+	. CSS
+	

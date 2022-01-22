@@ -1,5 +1,4 @@
 // Crée le template de l'affichage de chaque photographe sur la page d'accueil
-import Photographer from "../models/photograph.js";
 
 export default class PhotographerCard {
   constructor(photographer) {
@@ -7,11 +6,10 @@ export default class PhotographerCard {
   }
 
   getCard() {
-    const picture = `assets/photographers/${this._photographer.portrait}`;
     return `
             <article class="photographer-card">
                 <a href="photographer.html?id=${this._photographer.id}" class="photographer-link">
-                    <img src="${picture}" class="profile-pic" alt="${this._photographer.name}">
+                    <img src="${this._photographer.picture}" class="profile-pic" alt="${this._photographer.name}">
                 </a>
                 <h2 class="name">${this._photographer.name}</h2>
                 <h3 class="location">${this._photographer.city}, ${this._photographer.country}</h3>

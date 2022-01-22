@@ -1,16 +1,19 @@
 //Code JavaScript lié à la page photographer.html
-import PhotographerMedia from "../factories/models/PhotographerMedia.js";
+import PhotographerGallery from "../factories/models/photographerGallery.js";
+import PhotographerMedia from "../factories/templates/PhotographerMedia.js";
+import { likeIncrement, totalLikes } from "../functions/likesCounters.js";
+import Presentation from "../factories/templates/photographerPresentation.js";
 
+const presentationBloc = document.getElementById("presentation-bloc");
+const photographerImg = document.getElementById("photographer-img");
 const gallerySection = document.querySelector(".gallery-section");
-const photographerInfo = document.querySelector(".photographer-info");
+const priceContainer = document.querySelector(".price");
 
 let pageID = 0;
-let galleryArray = [];
-let photographerPrice = 0;
 
+// Récupération de l'ID de la page
 const getPageId = () => {
   pageID = parseInt(new URLSearchParams(window.location.search).get("id"));
-  return pageID;
 };
 getPageId();
 
@@ -20,53 +23,40 @@ fetch("data/photographers.json")
     result.data;
     const photographers = result.photographers;
     photographers.forEach((photographer) => {
+      // Si l'ID du photographe correspond à celui de la page html
       if (photographer.id === pageID) {
-        photographerPrice = photographer.price;
+        // Affichage du prix du photographe dans la <span> dédiée
+        priceContainer.textContent = photographer.price;
+
+        // Écriture de la bannière
+        const presentation = new Presentation(photographer);
+        presentationBloc.innerHTML = presentation.getPresentation();
+        photographerImg.innerHTML = presentation.getPhotographerImg();
       }
-      return photographerPrice;
     });
     const media = result.media;
     media.forEach((item) => {
+      //Récupère les média correspondant à l'ID du photographe
       if (item.photographerId === pageID) {
-        const PhotographerMediaTemplate = new PhotographerMedia(item);
+        //Crée la galerie avec les photos et vidéos
+        const photographerGallery = new PhotographerGallery(item);
+        const PhotographerMediaTemplate = new PhotographerMedia(
+          photographerGallery
+        );
         if (item.image) {
-          galleryArray.push(PhotographerMediaTemplate.getImg());
+          gallerySection.innerHTML += PhotographerMediaTemplate.getImg();
         } else {
-          galleryArray.push(PhotographerMediaTemplate.getVideo());
+          gallerySection.innerHTML += PhotographerMediaTemplate.getVideo();
         }
-        gallerySection.innerHTML = galleryArray;
       }
     });
+
+    //Affichage de tous les like
     totalLikes();
+
+    // Incrémentation à chaque clic sur l'icône de like
     likeIncrement();
   })
+
+  // Affichage des erreurs dans la console
   .catch((err) => console.error(`Erreur :`, err));
-
-const likeIncrement = () => {
-  const likeIcon = document.querySelectorAll(".like-icon");
-  likeIcon.forEach((heart) => {
-    heart.addEventListener("click", () => {
-      let likesNumber = parseInt(heart.previousElementSibling.innerHTML);
-      likesNumber++;
-      heart.previousElementSibling.innerHTML = likesNumber;
-      totalLikes();
-    });
-  });
-};
-
-// Affiche le total de likes et le prix dans le aside.photographer-info
-const totalLikes = () => {
-  let totalOfLikes = 0;
-  const likeIcon = document.querySelectorAll(".like-icon");
-  likeIcon.forEach((heart) => {
-    let i = parseInt(heart.previousElementSibling.innerHTML);
-    totalOfLikes += i;
-  });
-  photographerInfo.innerHTML = `
-      <div class="like">
-        <span>${totalOfLikes}</span>
-        <i aria-label=”likes” class="fas fa-heart"></i>
-      </div>
-      <div class="daily-price">€ ${photographerPrice} / jour</div>
-    `;
-};

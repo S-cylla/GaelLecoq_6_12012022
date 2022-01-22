@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
@@ -10,17 +10,18 @@
   </head>
   <body>
     <header>
-      <a href="index.html"><img src="assets/images/logo.png" class="logo"  alt="Page d'accueil de Fisheye"/></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo"  alt="Fisheye Home page"/></a>
     </header>
 
     <main id="main">
       <section class="photograph-header">
+        <div id="presentation-bloc"></div>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <div id="contact_modal">
+        <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modalTitle">
           <div class="modal">
             <header>
-              <h2>Contactez-moi</h2>
-              <img src="assets/icons/close.svg" onclick="closeModal()" />
+              <h2 id="modalTitle">Contactez-moi</h2>
+              <img src="assets/icons/close.svg" alt="close button" onclick="closeModal()" id="close-button" />
             </header>
             <form id="contact-form" action="#" method="post">
               <div class="form-data">
@@ -48,23 +49,32 @@
             </form>
           </div>
         </div>
-
+        <div id="photographer-img"></div>
       </section>
 
-      <div id="sort-by">
+      <div id="sort-by" aria-hidden="false">
         <label for="listbox-container" id="listbox-label">Trier par</label>
-        <select id="listbox-container" tabindex="0" aria-expanded="false">
+        <div id="listbox-container" tabindex="0" aria-haspopup="true" aria-expanded="false">
           <option value="popularity" tabindex="-1" id="listbox-popularity">Popularité</option>
           <option value="date" tabindex="-1" id="listbox-date">Date</option>
           <option value="title" tabindex="-1" id="listbox-title">Titre</option>
-        </select>
+        </div>
       </div>
 
-      <section class="gallery-section"></section>
-      <aside class="photographer-info"></aside>
+      <section class="gallery-section" aria-hidden="false"></section>
+
+      <aside class="photographer-info" aria-hidden="false">
+        <div class="like">
+          <span></span>
+          <i aria-label=”likes” class="fas fa-heart"></i>
+        </div>
+        <div class="daily-price">€ <span class="price"></span> / jour</div>
+      </aside>
     </main>
 
-    <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/functions/dropdown.js"></script>
+    <script src="/scripts/pages/photographer.js" type="module"></script>
+    <script src="/scripts/functions/lightbox.js"></script>
   </body>
 </html>

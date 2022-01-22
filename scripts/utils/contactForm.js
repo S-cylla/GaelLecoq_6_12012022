@@ -1,6 +1,7 @@
 // DOM
 const contactForm = document.getElementById("contact-form"); // Formulaire de contact
-const modal = document.getElementById("contact_modal"); // Fenêtre modale
+const contactModal = document.getElementById("contact_modal"); // Fenêtre modale
+const modal = document.querySelector(".modal"); // Fenêtre modale
 const formData = document.querySelectorAll(".form-data"); // Champs du formulaire
 const textControl = document.querySelectorAll(".text-control"); // Input du formulaire
 const firstNameInput = document.getElementById("firstname"); // Input prénom
@@ -12,8 +13,17 @@ const errorLast = document.getElementById("error-last"); // Erreur nom
 const errorEmail = document.getElementById("error-email"); // Erreur e-mail
 const errorMessage = document.getElementById("error-message"); // Erreur message
 const errorSubmit = document.getElementById("error-submit"); // Erreur submit
+const sortBy = document.getElementById("sort-by"); // Menu de tri de la galerie
+const gallerySection = document.querySelector(".gallery-section"); // Section d'affichage de la galerie
+const photographerInfo = document.querySelector(".photographer-info"); // Affichage des like + prix
+const closeButton = document.getElementById("close-button"); // Bouton de fermeture de la modale
 
 // Évènements
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 formData[0].addEventListener("change", firstnameValidation); // Validation Prénom
 formData[1].addEventListener("change", lastnameValidation); // Validation Nom
 formData[2].addEventListener("change", emailValidation); // Validation Email
@@ -21,11 +31,17 @@ formData[3].addEventListener("change", messageValidation); // Validation Email
 submitButton.addEventListener("click", formValidation); // Clic sur le bouton submit
 
 function displayModal() {
-  modal.style.display = "flex";
+  contactModal.style.display = "flex";
+  contactModal.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-hidden", "true");
+  sortBy.setAttribute("aria-hidden", "true");
+  gallerySection.setAttribute("aria-hidden", "true");
+  photographerInfo.setAttribute("aria-hidden", "true");
+  firstNameInput.focus();
 }
 
 function closeModal() {
-  modal.style.display = "none";
+  contactModal.style.display = "none";
 }
 
 // Validation "Prénom"
