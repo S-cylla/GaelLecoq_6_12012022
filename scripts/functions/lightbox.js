@@ -19,10 +19,19 @@ function openLightbox(url, title) {
   document.body.appendChild(dom);
 
   function loadImg(url, title) {
-    dom.querySelector(".lightbox__container").innerHTML = `
-      <img src="${url}" class="lightbox-img">
-      <p class="lightbox-img-title">${title}</p>
-  `;
+    if (url.includes("mp4")) {
+      dom.querySelector(".lightbox__container").innerHTML = `
+        <video controls>
+          <source src="${url}" type="video/mp4" alt="${title}">
+        </video>
+        <span class="title">${title}</span>
+      `;
+    } else {
+      dom.querySelector(".lightbox__container").innerHTML = `
+        <img src="${url}" alt="${title}">
+        <spa, class="title">${title}</spa,>
+      `;
+    }
   }
 
   // Close
@@ -83,73 +92,3 @@ function openLightbox(url, title) {
     }
   });
 }
-
-// class Lightbox {
-//   static init() {
-//     const links = Array.from(document.querySelectorAll(".lightbox-item"));
-//     const gallery = links.map((link) => link.getAttribute("src"));
-//     links.forEach((link) => {
-//       link.addEventListener("click", (e) => {
-//         console.log("clic");
-//         new Lightbox(
-//           e.currentTarget.getAttribute("src"),
-//           e.currentTarget.getAttribute("alt")
-//         );
-//       });
-//     });
-//   }
-
-//   /**
-//    *
-//    * @param {string} url URL de l'image
-//    * @param {string} title Titre de l'image
-//    */
-
-//   constructor(url, title) {
-//     const element = this.buildDOM(url, title);
-//     document.body.appendChild(element);
-//   }
-
-//   // /**
-//   //  *
-//   //  * @param {MouseEvent} e Ferme la lightbox
-//   //  */
-//   // close(e) {
-//   //   e.preventDefault();
-//   //   // this.element.classList.add("fadeOut");
-//   //   window.setTimeout(() => {
-//   //     // this.element.remove()
-//   //   }, 500);
-//   // }
-
-//   /**
-//    *
-//    * @param {string} url URL de l'image
-//    * @param {string} title Titre de l'image
-//    * @return {HTMLElement}
-//    */
-
-//   buildDOM(url, title) {
-//     const dom = document.createElement("div");
-//     dom.classList.add("lightbox");
-//     dom.innerHTML = `<button class="lightbox__close"><i class="fas fa-times fa-4x"></i></button>
-//       <button class="lightbox__prev"><i class="fas fa-chevron-left fa-4x"></i></button>
-//       <button class="lightbox__next"><i class="fas fa-chevron-right fa-4x"></i></button>
-//       <div class="lightbox__container">
-//         <img src="${url}" class="lightbox-img">
-//         <p class="lightbox-img-title">${title}</p>
-//       </div>`;
-//     dom
-//       .querySelector(".lightbox__close")
-//       // .addEventListener("click", this.close.bind(this));
-//       .addEventListener("click", () => {
-//         dom.classList.add("fadeOut");
-//         window.setTimeout(() => {
-//           dom.remove();
-//         }, 500);
-//       });
-//     return dom;
-//   }
-// }
-
-// Lightbox.init();

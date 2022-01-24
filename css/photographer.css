@@ -4,6 +4,10 @@
     --secondary : #D3573C;
 }
 
+#main {
+    padding-bottom: 100px;
+}
+
 #contact_modal {
     display: none;
     position: fixed;
@@ -40,6 +44,7 @@
 
 .photograph-header p {
     color: #525252;
+    font-size: 1.1em;
 }
 
 #photographer-img img{
@@ -68,30 +73,33 @@ option:hover {
 }
 
 .modal {
-    text-align: center;
     border-radius: var(--radius);
     background-color: #DB8876;
+    box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     padding: 35px;
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    margin-top: 0;
+    height: 170px;
+    display: block;
 }
 
 .modal header img {
     cursor: pointer;
+    position: absolute;
+    top: 2em;
+    right: 2em;
 }
 
 .modal header h2 {
     font-size: 64px;
+    margin-top: 20px;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
 }
 
 form {
@@ -112,7 +120,7 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 10px;
 }
 
 form input {
@@ -120,13 +128,20 @@ form input {
     height: 68px;
     border: none;
     border-radius: var(--radius);
+    font-size: 2em;
 }
 
-form #submit-form {
+form textarea {
+    border-radius: var(--radius);
+    border: none;
+}
+
+form #submitButton {
     text-align: center;
     display: inline-block;
     width: 170px;
     height: 69px;
+    margin-top: 26px;
 }
 
 #sort-by {
@@ -156,15 +171,10 @@ option {
 }
 
 .gallery-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 90px;
-    column-gap: 70px;
-}
-
-.gallery-section article {
-    width: calc(33% - 95px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 95px;
+    row-gap: 70px;
 }
 
 .gallery-section img,
@@ -183,7 +193,11 @@ option {
     display: flex;
     justify-content: space-between;
     color: var(--primary);
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+.media-caption .likes {
+    margin: 0;
 }
 
 .lightbox {
@@ -237,6 +251,8 @@ option {
 }
 
 .lightbox__container {
+    position: absolute;
+    left: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -247,11 +263,12 @@ option {
     min-height: 100vh;
 }
 
-.lightbox p {
+.lightbox .title {
     align-self: flex-start;
 }
 
-.lightbox__container img {
+.lightbox__container img,
+.lightbox__container video {
     max-width: 100%;
     max-height: 100%;
     border-radius: var(--radius);
@@ -268,10 +285,10 @@ option {
     bottom: 0;
     right: 50px;
     width: 376px;
-    height: 89px;
+    padding: .9em;
     background-color: #DB8876;
     border-radius: var(--radius);
-    font-size: 2em;
+    font-size: 1.5em;
     display: flex;
     justify-content: space-around;
     align-items: center;

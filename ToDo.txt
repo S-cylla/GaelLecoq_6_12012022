@@ -38,9 +38,15 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 
 
 ISSUES : 
-	. openLightBox : 
+	. Nav au clavier
+	. lightbox.js : 
 		. element.remove() ou element.parentElement.removeChild(element) ?
-		. Afficher vidéo
+		. Lecture vidéo au clavier
 	. dropdown
-	. CSS
+	. CSS :
+		. photographer.html : 
+			- images étirées
+			- titres parfois trop longs
+			- titres non aligné dans lightbox
+			- form trop grand si inspecteur fermé
 	

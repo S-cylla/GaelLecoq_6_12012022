@@ -8,6 +8,7 @@ const presentationBloc = document.getElementById("presentation-bloc");
 const photographerImg = document.getElementById("photographer-img");
 const gallerySection = document.querySelector(".gallery-section");
 const priceContainer = document.querySelector(".price");
+const photographerName = document.getElementById("photographer__name");
 
 let pageID = 0;
 
@@ -27,6 +28,7 @@ fetch("data/photographers.json")
       if (photographer.id === pageID) {
         // Affichage du prix du photographe dans la <span> dédiée
         priceContainer.textContent = photographer.price;
+        photographerName.textContent = photographer.name;
 
         // Écriture de la bannière
         const presentation = new Presentation(photographer);
