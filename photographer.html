@@ -20,8 +20,8 @@
         <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modalTitle">
           <div class="modal">
             <header>
-              <h2 id="modalTitle">Contactez-moi</h2>
-              <h2 id="photographer__name"></h2>
+              <h1 id="modalTitle">Contactez-moi</h1>
+              <h1 id="photographer__name"></h1>
               <img src="assets/icons/close.svg" alt="close button" onclick="closeModal()" id="close-button" />
             </header>
             <form id="contact-form" action="#" method="post">
@@ -55,10 +55,13 @@
 
       <div id="sort-by" aria-hidden="false">
         <label for="listbox-container" id="listbox-label">Trier par</label>
-        <div id="listbox-container" tabindex="0" aria-haspopup="true" aria-expanded="false">
-          <option value="popularity" tabindex="-1" id="listbox-popularity">Popularité</option>
-          <option value="date" tabindex="-1" id="listbox-date">Date</option>
-          <option value="title" tabindex="-1" id="listbox-title">Titre</option>
+        <div id="listbox-container" tabindex="0" role="button">
+          <label class="sort__label" id="sort-label">Popularité</label>
+          <ul id="options-list" class="listbox" role="listbox" aria-labelledby="sort__label">
+            <li class="listbox__option" role="option" id="popularity" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</li> 
+              <li class="listbox__option" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
+              <li class="listbox__option" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
+          </ul>
         </div>
       </div>
 
@@ -74,7 +77,6 @@
     </main>
 
     <script src="/scripts/utils/contactForm.js"></script>
-    <script src="/scripts/functions/dropdown.js"></script>
     <script src="/scripts/pages/photographer.js" type="module"></script>
     <script src="/scripts/functions/lightbox.js"></script>
   </body>

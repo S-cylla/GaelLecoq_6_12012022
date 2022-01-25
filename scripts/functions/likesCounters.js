@@ -1,4 +1,6 @@
-export function likeIncrement() {
+// Incrémente le nombre de likes à chaque clic
+export async function likeIncrement(e) {
+  await e;
   const likeIcon = document.querySelectorAll(".like-icon");
   likeIcon.forEach((heart) => {
     heart.addEventListener("click", () => {
@@ -11,7 +13,8 @@ export function likeIncrement() {
 }
 
 // Affiche le total de likes et le prix dans le aside.photographer-info
-export function totalLikes() {
+export async function totalLikes(e) {
+  await e;
   let totalOfLikes = 0;
   const likeIcon = document.querySelectorAll(".like-icon");
   const likeDiv = document.querySelector(".like");
@@ -22,5 +25,4 @@ export function totalLikes() {
   if (likeDiv != null) {
     likeDiv.firstElementChild.innerHTML = totalOfLikes;
   }
-  return totalOfLikes;
 }

@@ -38,15 +38,18 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 
 
 ISSUES : 
+	. Aria
 	. Nav au clavier
 	. lightbox.js : 
 		. element.remove() ou element.parentElement.removeChild(element) ?
 		. Lecture vidéo au clavier
-	. dropdown
+	. dropdown : rendre le tri fonctionnel
 	. CSS :
 		. photographer.html : 
 			- images étirées
 			- titres parfois trop longs
 			- titres non aligné dans lightbox
 			- form trop grand si inspecteur fermé
+			- dropdown : border-bottom trop long
+	. Performances : chargement images lent
 	

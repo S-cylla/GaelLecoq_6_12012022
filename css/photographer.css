@@ -67,7 +67,7 @@
 }
 
 .contact_button:hover,
-option:hover {
+li:hover {
     background-color: var(--secondary);
     color: #000;
 }
@@ -95,11 +95,12 @@ option:hover {
     right: 2em;
 }
 
-.modal header h2 {
-    font-size: 64px;
-    margin-top: 20px;
-    font-weight: normal;
+.modal header h1 {
+    font-size: 4em;
+    font-weight: 400;
+    line-height: 83px;
     margin: 0;
+    color: #000;
 }
 
 form {
@@ -149,9 +150,11 @@ form #submitButton {
     justify-content: flex-start;
     gap: 12px;
     font-size: 1.5em;
+    font-weight: 700;
 }
 
 #listbox-container {
+    position: relative;
     background-color: var(--primary);
     color: #FFF;
     display: flex;
@@ -159,15 +162,69 @@ form #submitButton {
     align-items: center;
     cursor: pointer;
     border-radius: var(--radius);
-    width: 150px;
-    min-height: 50px;
 }
 
-option {
-    padding: 10px;
+.sort__label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    align-items: center;
+    padding: 1.4rem;
+    gap: 1.625rem;
+    border-radius: var(--radius);
+}
+
+.sort__label::after {
+    display: flex;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: 1rem;
+    content: url(../assets/icons/dropdown.svg);
+    transform: rotate(180deg);
+    transition: transform .2s;
+}
+
+ul.listbox {
+    display: none;
+    background-color: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--radius);
+}
+
+li {
+    width: 100%;
+    padding: 1.4rem;
+}
+
+li:nth-of-type(1) {
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+li:nth-of-type(3) {
+    border-radius: 0 0 var(--radius) var(--radius);
+    border-bottom: none;
+}
+
+.active::after {
+    transform: rotate(0);
+}
+
+.active + ul {
+    display: block;
+}
+
+.listbox__option {
+    text-align: left;
+    list-style-type: none;
+    font-size: 1.1rem;
     border-bottom: 1px solid #FFF;
     width: 100%;
-    text-align: center;
 }
 
 .gallery-section {

@@ -9,6 +9,7 @@ function openLightbox(url, title) {
   let titles = links.map((link) => link.getAttribute("alt"));
   const dom = document.createElement("div");
   dom.classList.add("lightbox");
+  dom.setAttribute("aria-label", "closeup view");
   dom.innerHTML = `<button class="lightbox__close"><i class="fas fa-times fa-4x"></i></button>
     <button class="lightbox__prev"><i class="fas fa-chevron-left fa-4x"></i></button>
     <button class="lightbox__next"><i class="fas fa-chevron-right fa-4x"></i></button>
