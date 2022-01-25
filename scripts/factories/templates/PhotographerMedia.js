@@ -5,7 +5,7 @@ export default class PhotographerMedia {
 
   getImg() {
     return `
-      <article class="article">
+      <article>
         <img src="${this._media.miniature}" class="lightbox-item" onclick="openLightbox('${this._media.miniature}', '${this._media.title}')" alt="${this._media.alt}">
         <div class="media-caption">
             <span class="title">${this._media.title}</span>

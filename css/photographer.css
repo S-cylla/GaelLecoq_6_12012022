@@ -4,6 +4,11 @@
     --secondary : #D3573C;
 }
 
+
+img {
+    object-fit: cover;
+}
+
 #main {
     padding-bottom: 100px;
 }
@@ -78,6 +83,7 @@ li:hover {
     box-shadow: -2px 4px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
     padding: 35px;
+    max-height: 90%;
 }
 
 .modal header {
@@ -109,6 +115,7 @@ form {
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+    row-gap: 10px;
 }
 
 form label {
@@ -121,7 +128,6 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 10px;
 }
 
 form input {
@@ -142,7 +148,7 @@ form #submitButton {
     display: inline-block;
     width: 170px;
     height: 69px;
-    margin-top: 26px;
+    margin-top: 10px;
 }
 
 #sort-by {
@@ -154,6 +160,7 @@ form #submitButton {
 }
 
 #listbox-container {
+    width: 10rem;
     position: relative;
     background-color: var(--primary);
     color: #FFF;
@@ -162,6 +169,7 @@ form #submitButton {
     align-items: center;
     cursor: pointer;
     border-radius: var(--radius);
+    z-index: 4;
 }
 
 .sort__label {
@@ -169,14 +177,17 @@ form #submitButton {
     justify-content: space-between;
     font-size: 1.1rem;
     align-items: center;
-    padding: 1.4rem;
+    padding: 1.4rem 2.2rem 1.4rem 1.4rem;
     gap: 1.625rem;
     border-radius: var(--radius);
 }
 
 .sort__label::after {
     display: flex;
-    z-index: 2;
+    position: absolute;
+    top: 1.2em;
+    right: 1.1rem;
+    z-index: 5;
     justify-content: center;
     align-items: center;
     width: 1rem;
@@ -255,6 +266,10 @@ li:nth-of-type(3) {
 
 .media-caption .likes {
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .lightbox {
@@ -327,6 +342,7 @@ li:nth-of-type(3) {
 .lightbox__container img,
 .lightbox__container video {
     max-width: 100%;
+    width: 100%;
     max-height: 100%;
     border-radius: var(--radius);
     animation: lightboxIn .3s;
