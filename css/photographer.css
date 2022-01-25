@@ -90,7 +90,7 @@ li:hover {
     justify-content: space-between;
     width: 100%;
     margin-top: 0;
-    height: 170px;
+    height: 20%;
     display: block;
 }
 
@@ -132,7 +132,6 @@ form div {
 
 form input {
     width: 100%;
-    height: 68px;
     border: none;
     border-radius: var(--radius);
     font-size: 2em;
@@ -204,7 +203,7 @@ ul.listbox {
     left: 0;
     width: 100%;
     margin: 0;
-    padding: 0;
+    padding: 0 0.5rem;
     border-radius: var(--radius);
 }
 

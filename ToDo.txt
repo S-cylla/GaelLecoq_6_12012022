@@ -15,7 +15,7 @@ Pages photographes :
 	. Chaque média comprend un titre et un nombre de likes --OK
 	. Icône "like" fonctionnel : incrémente le nombre de likes affiché --OK
 	. Nombre likes total : sommes des likes de chaque média --OK
-	. Médias peuvent être triés par popularité ou par titre
+	. Médias peuvent être triés par popularité ou par titre --OK
 	. Clic sur média : s'affiche dans une lightbox --OK
 		. Croix dans le coin pour fermer la fenêtre --OK
 		. Boutons de nav pour passer d'un élément à l'autre --OK
@@ -40,16 +40,6 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 ISSUES : 
 	. Aria
 	. Nav au clavier
-	. lightbox.js : 
-		. element.remove() ou element.parentElement.removeChild(element) ?
-		. Lecture vidéo au clavier
-	. dropdown : rendre le tri fonctionnel
-	. CSS :
-		. photographer.html : 
-			- images étirées
-			- titres parfois trop longs
-			- titres non aligné dans lightbox
-			- form trop grand si inspecteur fermé
-			- dropdown : border-bottom trop long
-	. Performances : chargement images lent
+	. Filtre : 
+		. Refacto
 	
