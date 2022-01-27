@@ -153,9 +153,11 @@ form #submitButton {
 #sort-by {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     gap: 12px;
     font-size: 1.5em;
     font-weight: 700;
+    margin-bottom: 30px;
 }
 
 #listbox-container {
@@ -193,6 +195,7 @@ form #submitButton {
     content: url(../assets/icons/dropdown.svg);
     transform: rotate(180deg);
     transition: transform .2s;
+    cursor: pointer;
 }
 
 ul.listbox {
@@ -296,7 +299,8 @@ li:nth-of-type(3) {
     z-index: 11;
 }
 
-.lightbox button:hover {
+.lightbox button:hover,
+.like-icon:hover {
     color: var(--secondary);
 }
 

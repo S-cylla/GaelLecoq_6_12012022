@@ -1,11 +1,11 @@
 // Crée le template de l'affichage de chaque photographe sur la page d'accueil
 
 export default class PhotographerCard {
-  constructor(photographer) {
-    this._photographer = photographer;
+  constructor (photographer) {
+    this._photographer = photographer
   }
 
-  getCard() {
+  getCard () {
     return `
             <article class="photographer-card">
                 <a href="photographer.html?id=${this._photographer.id}" class="photographer-link">
@@ -16,6 +16,6 @@ export default class PhotographerCard {
                 <p class="tagline">${this._photographer.tagline}</p>
                 <span class="price">${this._photographer.price}€/jour</span>
             </article>
-            `;
+            `
   }
 }

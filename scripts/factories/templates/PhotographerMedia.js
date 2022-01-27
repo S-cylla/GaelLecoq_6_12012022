@@ -1,9 +1,9 @@
 export default class PhotographerMedia {
-  constructor(media) {
-    this._media = media;
+  constructor (media) {
+    this._media = media
   }
 
-  getImg() {
+  getImg () {
     return `
       <article>
         <img src="${this._media.miniature}" class="lightbox-item" onclick="openLightbox('${this._media.miniature}', '${this._media.title}')" alt="${this._media.alt}">
@@ -15,10 +15,10 @@ export default class PhotographerMedia {
             </p>
         </div>
       </article>
-      `;
+      `
   }
 
-  getVideo() {
+  getVideo () {
     return `
       <article>
         <video controls>
@@ -32,6 +32,6 @@ export default class PhotographerMedia {
             </p>
         </div>
       </article>
-      `;
+      `
   }
 }

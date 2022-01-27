@@ -1,5 +1,5 @@
 Forker repo --OK
-Utiliser le pattern Factory Method
+Utiliser le pattern Factory Method --OK
 Index :
 	. Logo : lien vers page d'accueil --OK
 	. Liste photographes avec :
@@ -29,7 +29,7 @@ Accessibilité :
 	. Photos doivent comporter des descriptions textuelles (les inclure dans la page) --OK
 	. Nav au clavier 
 	. HTML sémantique --OK
-	. ARIA pour chaque élément personnalisé
+	. ARIA pour chaque élément personnalisé --OK
 	. Code passe validation AChecker sans "known issues"
 	. Gestion des événements (clics, pressions au clavier) doit être configurée (KeyboardEvent.key ou KeyboardEvent.code) --OK 
 	. Utiliser lecteur d'écran
@@ -38,8 +38,5 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 
 
 ISSUES : 
-	. Aria
-	. Nav au clavier
-	. Filtre : 
-		. Refacto
-	
+	. Nav au clavier :
+		. Dropdown : "Entrée"
