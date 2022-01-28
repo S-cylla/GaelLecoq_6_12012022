@@ -1,3 +1,4 @@
+'use strict'
 // Code JavaScript lié à la page photographer.html
 
 import PhotographerGallery from '../factories/models/photographerGallery.js'
@@ -15,7 +16,7 @@ const photographerName = document.getElementById('photographer__name')
 let pageID = 0
 let photographers = []
 let media = []
-export const gallery = []
+const gallery = []
 
 // Récupération de l'ID de la page
 const getPageId = () => {
@@ -27,8 +28,7 @@ export const fetchDatas = async () => {
   await fetch('data/photographers.json')
     .then((result) => result.json())
     .then((result) => {
-      // eslint-disable-next-line no-unused-expressions
-      result.data
+      // result.data
       photographers = result.photographers
       photographersInfoDisplay()
       media = result.media

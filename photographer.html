@@ -53,31 +53,31 @@
         <div id="photographer-img"></div>
       </section>
 
-      <div id="sort-by" aria-hidden="false">
-        <label for="listbox-container" id="listbox-label">Trier par</label>
-        <div id="listbox-container" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+      <div id="sort-by">
+        <label id="listbox-label">Trier par</label>
+        <div id="listbox-container" tabindex="0" role="menu" aria-haspopup="listbox" aria-expanded="false">
           <label class="sort__label" id="sort-label">Popularité</label>
-          <ul id="options-list" class="listbox" role="listbox" aria-labelledby="sort__label" aria-activedescendant="popularity">
-            <li class="listbox__option" role="option" id="popularity" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</li> 
-              <li class="listbox__option" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
-              <li class="listbox__option" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
+          <ul id="options-list" class="listbox" role="listbox" aria-labelledby="sort-label" aria-activedescendant="popularity">
+            <li class="listbox__option" tabindex="1" role="option" id="popularity" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</li> 
+              <li class="listbox__option" tabindex="1" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
+              <li class="listbox__option" tabindex="1" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
           </ul>
         </div>
       </div>
 
-      <section class="gallery-section" aria-hidden="false"></section>
+      <div class="gallery-section" role="presentation"></div>
 
-      <aside class="photographer-info" aria-hidden="false">
+      <aside class="photographer-info">
         <div class="like">
           <span></span>
-          <i aria-label=”likes” class="fas fa-heart"></i>
+          <img src="./assets/icons/heart-solid.svg" alt="like icon">
         </div>
         <div class="daily-price">€ <span class="price"></span> / jour</div>
       </aside>
     </main>
 
     <script src="./scripts/pages/photographer.js" type="module"></script>
-    <script src="./scripts/functions/lightbox.js"></script>
+    <script src="./scripts/utils/lightbox.js"></script>
     <script src="./scripts/functions/dropdown.js" type="module"></script>
     <script src="./scripts/utils/contactForm.js"></script>
   </body>

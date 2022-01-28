@@ -22,7 +22,7 @@ const photographerInfo = document.querySelector('.photographer-info') // Afficha
 const submitButton = document.getElementById('submitButton')
 
 // Évènements
-document.addEventListener('keyup', (e) => {
+document.addEventListener('keypress', (e) => {
   if (e.key === 'Escape') {
     closeModal()
   }

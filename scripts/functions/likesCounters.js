@@ -8,6 +8,14 @@ export function likeIncrement () {
       heart.previousElementSibling.innerHTML = likesNumber
       totalLikes()
     })
+    heart.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        let likesNumber = parseInt(heart.previousElementSibling.innerHTML)
+        likesNumber++
+        heart.previousElementSibling.innerHTML = likesNumber
+        totalLikes()
+      }
+    })
   })
 }
 

@@ -1,15 +1,23 @@
+import sortBy from './sortBy.js'
+
 const sortLabel = document.getElementById('sort-label') // Label du menu déroulant
 const listboxContainer = document.getElementById('listbox-container') // Container de la listbox
 const listbox = document.getElementById('options-list') // Ul de la liste des options
 const firstOption = listbox.firstElementChild
 
 function dropdown () {
-  sortLabel.addEventListener('click', () => {
-    activeToggle('Popularité')
-  })
+  sortLabel.addEventListener('click', () => activeToggle('Popularité'))
+  listboxContainer.addEventListener('keypress', dropD)
 }
 
 dropdown()
+
+function dropD (e) {
+  if (e.key === 'Enter') {
+    activeToggle('Popularité')
+    sortBy()
+  }
+}
 
 export default function activeToggle (value) {
   if (!sortLabel.classList.contains('active')) {
@@ -30,7 +38,6 @@ function keyboardNav (e) {
   let activeElement = document.activeElement
   activeElement.setAttribute('aria-selected', 'true')
   if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
-    console.log(e.key)
     activeElement.setAttribute('aria-selected', 'false')
     if (e.key === 'ArrowUp') {
       if (activeElement.previousElementSibling != null) {
@@ -50,5 +57,8 @@ function keyboardNav (e) {
   }
   if (e.key === 'Escape') {
     activeToggle('Popularité')
+    listboxContainer.focus()
+  } if (e.key === 'Enter') {
+    console.log(e.target)
   }
 }

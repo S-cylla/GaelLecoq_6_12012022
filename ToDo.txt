@@ -39,4 +39,5 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 
 ISSUES : 
 	. Nav au clavier :
-		. Dropdown : "Entrée"
+		. sortBy : "Entrée"
+		. Gallery : "Entrée"
