@@ -37,5 +37,5 @@ JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écra
 
 
 ISSUES : 
-	. Nav au clavier :
-		. sortBy : "Entrée"
+	. Vidéos : 
+		. Pas de son

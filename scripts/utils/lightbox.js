@@ -5,8 +5,8 @@
 export const lightbox = () => {
   const images = document.querySelectorAll('.lightbox-item')
   images.forEach(image => {
-    image.addEventListener('click', openLightbox)
     image.addEventListener('keypress', keyboardLightbox)
+    image.addEventListener('click', openLightbox)
 
     function keyboardLightbox (e) {
       if (e.key === 'Enter') {
@@ -32,14 +32,15 @@ export const lightbox = () => {
 
       dom.classList.add('lightbox')
       dom.setAttribute('aria-label', 'closeup view')
-      dom.innerHTML = `<button class="lightbox__close" aria-label="close"><i class="fas fa-times fa-4x"></i></button>
-        <button class="lightbox__prev" aria-label="previous"><i class="fas fa-chevron-left fa-4x"></i></button>
-        <button class="lightbox__next" aria-label="next"><i class="fas fa-chevron-right fa-4x"></i></button>
+      dom.innerHTML = `<button class="lightbox__close" aria-label="close" tabindex="1"><i class="fas fa-times fa-4x"></i></button>
+        <button class="lightbox__prev" aria-label="previous" tabindex="1"><i class="fas fa-chevron-left fa-4x"></i></button>
+        <button class="lightbox__next" aria-label="next" tabindex="1"><i class="fas fa-chevron-right fa-4x"></i></button>
         <div class="lightbox__container">
         
         </div>`
       loadImg(imgUrl, imgTitle)
       document.body.appendChild(dom)
+      dom.querySelector('.lightbox__close').focus()
 
       function loadImg (imgUrl, imgTitle) {
         if (imgUrl.includes('mp4')) {
@@ -55,6 +56,7 @@ export const lightbox = () => {
             <spa, class="title">${imgTitle}</spa,>
           `
         }
+        dom.querySelector('.lightbox__container').focus()
       }
 
       // Close

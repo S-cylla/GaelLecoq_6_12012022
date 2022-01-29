@@ -5,7 +5,7 @@ import PhotographerGallery from '../factories/models/photographerGallery.js'
 import PhotographerMedia from '../factories/templates/PhotographerMedia.js'
 import { likeIncrement, totalLikes } from '../functions/likesCounters.js'
 import Presentation from '../factories/templates/photographerPresentation.js'
-import sortBy from '../functions/sortBy.js'
+import { sortBy } from '../functions/sortBy.js'
 import { lightbox } from '../utils/lightbox.js'
 
 const presentationBloc = document.getElementById('presentation-bloc')
@@ -17,7 +17,7 @@ const photographerName = document.getElementById('photographer__name')
 let pageID = 0
 let photographers = []
 let media = []
-const gallery = []
+export const gallery = []
 
 // Récupération de l'ID de la page
 const getPageId = () => {

@@ -1,4 +1,5 @@
-import sortBy from './sortBy.js'
+import { gallery } from '../pages/photographer.js'
+import { sortBy, sortByDate, sortByPopularity, sortByTitle } from './sortBy.js'
 
 const sortLabel = document.getElementById('sort-label') // Label du menu déroulant
 const listboxContainer = document.getElementById('listbox-container') // Container de la listbox
@@ -59,6 +60,12 @@ function keyboardNav (e) {
     activeToggle('Popularité')
     listboxContainer.focus()
   } if (e.key === 'Enter') {
-    console.log(e.target)
+    if (e.target.id === 'popularity') {
+      sortByPopularity(gallery)
+    } else if (e.target.id === 'date') {
+      sortByDate(gallery)
+    } else if (e.target.id === 'title') {
+      sortByTitle(gallery)
+    }
   }
 }
