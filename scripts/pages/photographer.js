@@ -6,6 +6,7 @@ import PhotographerMedia from '../factories/templates/PhotographerMedia.js'
 import { likeIncrement, totalLikes } from '../functions/likesCounters.js'
 import Presentation from '../factories/templates/photographerPresentation.js'
 import sortBy from '../functions/sortBy.js'
+import { lightbox } from '../utils/lightbox.js'
 
 const presentationBloc = document.getElementById('presentation-bloc')
 const photographerImg = document.getElementById('photographer-img')
@@ -33,6 +34,7 @@ export const fetchDatas = async () => {
       photographersInfoDisplay()
       media = result.media
       mediaDisplay()
+      lightbox()
       sortBy(gallery)
       totalLikes()
       likeIncrement()

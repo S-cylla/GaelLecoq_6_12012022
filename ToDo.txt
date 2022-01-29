@@ -32,12 +32,10 @@ Accessibilité :
 	. ARIA pour chaque élément personnalisé --OK
 	. Code passe validation AChecker sans "known issues"
 	. Gestion des événements (clics, pressions au clavier) doit être configurée (KeyboardEvent.key ou KeyboardEvent.code) --OK 
-	. Utiliser lecteur d'écran
-
+	. Utiliser lecteur d'écran --OK
 JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écran) --OK
 
 
 ISSUES : 
 	. Nav au clavier :
 		. sortBy : "Entrée"
-		. Gallery : "Entrée"

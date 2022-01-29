@@ -6,7 +6,7 @@ export default class PhotographerMedia {
   getImg () {
     return `
       <article>
-        <img src="${this._media.miniature}" tabindex="0" class="lightbox-item" onclick="openLightbox('${this._media.miniature}', '${this._media.title}')" alt="${this._media.alt}">
+        <img src="${this._media.miniature}" tabindex="0" class="lightbox-item"  alt="${this._media.alt}">
         <div class="media-caption">
             <span class="title">${this._media.title}</span>
             <p class="likes">
@@ -22,7 +22,7 @@ export default class PhotographerMedia {
     return `
       <article>
         <video controls>
-            <source src="${this._media.miniature}" type="video/mp4" tabindex="0" class="lightbox-item" onclick="openLightbox(${this._media.miniature}, ${this._media.title})" alt="${this._media.alt}">
+            <source src="${this._media.miniature}" type="video/mp4" tabindex="0" class="lightbox-item"  alt="${this._media.alt}">
         </video>
         <div class="media-caption">
             <span class="title">${this._media.title}</span>
