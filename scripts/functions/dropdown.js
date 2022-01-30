@@ -1,4 +1,3 @@
-import { gallery } from '../pages/photographer.js'
 import { sortBy, sortByDate, sortByPopularity, sortByTitle } from './sortBy.js'
 
 const sortLabel = document.getElementById('sort-label') // Label du menu déroulant
@@ -61,11 +60,11 @@ function keyboardNav (e) {
     listboxContainer.focus()
   } if (e.key === 'Enter') {
     if (e.target.id === 'popularity') {
-      sortByPopularity(gallery)
+      sortByPopularity()
     } else if (e.target.id === 'date') {
-      sortByDate(gallery)
+      sortByDate()
     } else if (e.target.id === 'title') {
-      sortByTitle(gallery)
+      sortByTitle()
     }
   }
 }

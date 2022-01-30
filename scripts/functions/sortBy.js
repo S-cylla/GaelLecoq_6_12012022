@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
-import { createGallery } from '../pages/photographer.js'
+import { createGallery, gallery } from '../pages/photographer.js'
 import activeToggle from './dropdown.js'
 import { likeIncrement } from './likesCounters.js'
+import { lightbox } from '../utils/lightbox.js'
 
 const popularityItem = document.getElementById('popularity')
 const dateItem = document.getElementById('date')
@@ -13,23 +14,26 @@ export function sortBy () {
   titleItem.addEventListener('click', sortByTitle)
 }
 
-export function sortByPopularity (array) {
-  const popularityArray = array.sort((a, b) => b.likes - a.likes)
+export function sortByPopularity () {
+  const popularityArray = gallery.sort((a, b) => b.likes - a.likes)
   createGallery(popularityArray)
   activeToggle('Popularité')
+  lightbox()
   likeIncrement()
 }
 
-export function sortByDate (array) {
-  const dateArray = array.sort((a, b) => b.date.split('-').join('') - a.date.split('-').join(''))
+export function sortByDate () {
+  const dateArray = gallery.sort((a, b) => b.date.split('-').join('') - a.date.split('-').join(''))
   createGallery(dateArray)
   activeToggle('Date')
+  lightbox()
   likeIncrement()
 }
 
-export function sortByTitle (array) {
-  const titleArray = array.sort((a, b) => a.title.localeCompare(b.title))
+export function sortByTitle () {
+  const titleArray = gallery.sort((a, b) => a.title.localeCompare(b.title))
   createGallery(titleArray)
   activeToggle('Titre')
+  lightbox()
   likeIncrement()
 }

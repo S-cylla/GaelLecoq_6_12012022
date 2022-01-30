@@ -18,8 +18,8 @@ export const lightbox = () => {
       let imgUrl = image.src
       let imgTitle = image.alt
       const links = Array.from(document.querySelectorAll('.lightbox-item'))
-      const gallery = links.map((link) => link.getAttribute('src'))
-      let index = gallery.indexOf(imgUrl)
+      const src = links.map((link) => link.src)
+      let index = src.indexOf(imgUrl)
       const titles = links.map((link) => link.getAttribute('alt'))
       const dom = document.createElement('div')
 
@@ -73,7 +73,7 @@ export const lightbox = () => {
         if (index < 0) {
           index = links.length - 1
         }
-        imgUrl = gallery[index]
+        imgUrl = src[index]
         imgTitle = titles[index]
         loadImg(imgUrl, imgTitle)
       })
@@ -84,7 +84,7 @@ export const lightbox = () => {
         if (index === links.length) {
           index = 0
         }
-        imgUrl = gallery[index]
+        imgUrl = src[index]
         imgTitle = titles[index]
         loadImg(imgUrl, imgTitle)
       })
@@ -97,21 +97,21 @@ export const lightbox = () => {
             dom.remove()
           }, 500)
         } else if (e.key === 'ArrowLeft') {
-          let index = gallery.indexOf(imgUrl)
+          let index = src.indexOf(imgUrl)
           index--
           if (index < 0) {
             index = links.length - 1
           }
-          imgUrl = gallery[index]
+          imgUrl = src[index]
           imgTitle = titles[index]
           loadImg(imgUrl, imgTitle)
         } else if (e.key === 'ArrowRight') {
-          let index = gallery.indexOf(imgUrl)
+          let index = src.indexOf(imgUrl)
           index++
           if (index === links.length) {
             index = 0
           }
-          imgUrl = gallery[index]
+          imgUrl = src[index]
           imgTitle = titles[index]
           loadImg(imgUrl, imgTitle)
         }
