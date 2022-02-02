@@ -24,12 +24,12 @@ export default function activeToggle (value) {
     listboxContainer.setAttribute('aria-expanded', 'true')
     sortLabel.classList.add('active')
     firstOption.focus()
-    window.addEventListener('keydown', keyboardNav)
+    listboxContainer.addEventListener('keydown', keyboardNav)
   } else {
     sortLabel.classList.remove('active')
     sortLabel.textContent = value
     listboxContainer.setAttribute('aria-expanded', 'false')
-    window.removeEventListener('keydown', keyboardNav)
+    sortLabel.removeEventListener('keydown', keyboardNav)
   }
 }
 
@@ -54,11 +54,15 @@ function keyboardNav (e) {
     }
     activeElement.setAttribute('aria-selected', 'true')
     activeElement.focus()
-  }
-  if (e.key === 'Escape') {
-    activeToggle('Popularité')
+  } else if (e.key === 'Escape') {
+    if (sortLabel.classList.contains('active')) {
+      activeToggle('Popularité')
+    }
     listboxContainer.focus()
-  } if (e.key === 'Enter') {
+  } else if (e.key === 'Enter') {
+    if (!sortLabel.classList.contains('active')) {
+      activeToggle('Popularité')
+    }
     if (e.target.id === 'popularity') {
       sortByPopularity()
     } else if (e.target.id === 'date') {
@@ -67,4 +71,5 @@ function keyboardNav (e) {
       sortByTitle()
     }
   }
+  dropdown()
 }

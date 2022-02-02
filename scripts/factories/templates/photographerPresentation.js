@@ -6,7 +6,7 @@ export default class Presentation {
 
   getPresentation () {
     return `
-        <h1 aria-label="name">${this._photographer.name}</h1>
+        <h1 aria-label="name" role="header">${this._photographer.name}</h1>
         <h3 class="location">${this._photographer.city}, ${this._photographer.country}</h3>
         <p class="tagline">${this._photographer.tagline}</p>
         `

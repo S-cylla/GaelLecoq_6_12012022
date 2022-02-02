@@ -94,8 +94,10 @@ li:hover {
     display: block;
 }
 
-.modal header img {
+#close-button {
     cursor: pointer;
+    border: none;
+    background-color: inherit;
     position: absolute;
     top: 2em;
     right: 2em;
@@ -177,6 +179,7 @@ form #submitButton {
     display: flex;
     justify-content: space-between;
     font-size: 1.1rem;
+    font-weight: 700;
     align-items: center;
     padding: 1.4rem 2.2rem 1.4rem 1.4rem;
     gap: 1.625rem;
@@ -338,13 +341,28 @@ li:nth-of-type(3) {
     align-items: center;
     justify-content: center;
     padding: 62px 195px;
-    width: 100vh;
-    height: 100%;
+    width: 1050px;
+    height: 900px;
     min-height: 100vh;
+}
+
+@media screen and (max-width : 1200px) {
+    .lightbox__container {
+        width: 90vw;
+        max-height: 100vh;
+        left: 0;
+    }
+}
+
+@media screen and (max-height : 900px) {
+    .lightbox__container {
+        height: 90vh;
+    }
 }
 
 .lightbox .title {
     align-self: flex-start;
+    color: var(--primary);
 }
 
 .lightbox__container img,

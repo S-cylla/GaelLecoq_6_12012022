@@ -16,53 +16,55 @@
     <main id="main">
       <section class="photograph-header">
         <div id="presentation-bloc"></div>
-        <button id="contact__button" aria-labelledby="contact__button" class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <div id="contact_modal" role="dialog" aria-hidden="true" aria-describedby="modalTitle">
+        <button id="contact__button" aria-label="Contact Me" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <div id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
           <div class="modal">
             <header>
               <h1 id="modalTitle">Contactez-moi</h1>
               <h1 id="photographer__name"></h1>
-              <img src="assets/icons/close.svg" alt="close button" onclick="closeModal()" id="close-button" />
+              <button onclick="closeModal()" id="close-button" aria-label="Close Contact form">
+                <img src="assets/icons/close.svg" alt="close button"/>
+              </button>
             </header>
             <form id="contact-form" action="#" method="post">
               <div class="form-data">
-                <label for="firstname">Prénom</label>
-                <input class="text-control" type="text" id="firstname" name="firstname" required/>
+                <label for="First name">Prénom</label>
+                <input class="text-control" type="text" id="firstname" name="firstname" aria-labelledby="First name" required/>
                 <span class="error-input" id="error-first"></span>
               </div>
               <div class="form-data">
-                <label for="lastname">Nom</label>
-                <input class="text-control" type="text" id="lastname" name="lastname" required/>
+                <label for="Last name">Nom</label>
+                <input class="text-control" type="text" id="lastname" name="lastname" aria-labelledby="Last name" required/>
                 <span class="error-input" id="error-last"></span>
               </div>
               <div class="form-data">
-                <label for="email">Email</label>
-                <input class="text-control" type="email" name="email" id="email" required>
+                <label for="Email">Email</label>
+                <input class="text-control" type="email" name="email" id="email" aria-labelledby="Email" required>
                 <span class="error-input" id="error-email"></span>
               </div>
               <div class="form-data">
-                <label for="message">Votre message</label>
-                <textarea class="text-control" name="message" id="message" cols="80" rows="11"></textarea>
+                <label for="Your message">Votre message</label>
+                <textarea class="text-control" name="message" id="message" cols="80" rows="11" aria-labelledby="Your message"></textarea>
                 <span class="error-input" id="error-message"></span>
                 </div>
-              <button type="submit" id="submitButton" class="contact_button">Envoyer</button>
+              <button type="submit" id="submitButton" class="contact_button" aria-label="Send">Envoyer</button>
               <span class="error-input" id="error-submit"></span>
             </form>
           </div>
         </div>
-        <div id="photographer-img"></div>
+        <div id="photographer-img" role="img"></div>
       </section>
 
       <div id="sort-by">
         <label id="listbox-label">Trier par</label>
-        <div id="listbox-container" tabindex="0" role="menu" aria-haspopup="listbox" aria-expanded="false">
+        <button id="listbox-container" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
           <label class="sort__label" id="sort-label">Popularité</label>
           <ul id="options-list" class="listbox" role="listbox" aria-labelledby="sort-label" aria-activedescendant="popularity">
             <li class="listbox__option" tabindex="1" role="option" id="popularity" aria-selected="true" data-listbox-value="rate" data-listbox-name="Popularité">Popularité</li> 
-              <li class="listbox__option" tabindex="1" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
-              <li class="listbox__option" tabindex="1" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
+            <li class="listbox__option" tabindex="1" role="option" id="date" data-listbox-value="date" data-listbox-name="Date">Date</li> 
+            <li class="listbox__option" tabindex="1" role="option" id="title" data-listbox-value="title" data-listbox-name="Titre">Titre</li> 
           </ul>
-        </div>
+        </button>
       </div>
 
       <div class="gallery-section" role="presentation"></div>
