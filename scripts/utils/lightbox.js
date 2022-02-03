@@ -1,9 +1,13 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 // Création de la lightbox
 
+import { escapeButton } from '../functions/escapeButton.js'
+import { gallerySection } from '../pages/photographer.js'
+import { contactModal, modal, photographerInfo, presentationBloc } from './contactForm.js'
+
 export const lightbox = () => {
+  const sortBy = document.getElementById('sort-by')
   const images = document.querySelectorAll('.lightbox-item')
+  console.log(images)
   images.forEach(image => {
     image.addEventListener('keypress', keyboardLightbox)
     image.addEventListener('click', openLightbox)
@@ -16,7 +20,7 @@ export const lightbox = () => {
 
     function openLightbox () {
       let imgUrl = image.src
-      let imgTitle = image.alt
+      let imgTitle = image.alt ? image.alt : image.nextElementSibling.firstElementChild.textContent
       const links = Array.from(document.querySelectorAll('.lightbox-item'))
       const src = links.map((link) => link.src)
       let index = src.indexOf(imgUrl)
@@ -41,19 +45,20 @@ export const lightbox = () => {
       loadImg(imgUrl, imgTitle)
       document.body.appendChild(dom)
       dom.querySelector('.lightbox__close').focus()
+      escapeButton()
 
       function loadImg (imgUrl, imgTitle) {
-        if (imgUrl.includes('mp4')) {
-          dom.querySelector('.lightbox__container').innerHTML = `
-            <video controls>
-              <source src="${imgUrl}" type="video/mp4" alt="${imgTitle}">
-            </video>
-            <span class="title">${imgTitle}</span>
-          `
-        } else {
+        console.log(imgUrl)
+        if (imgUrl.includes('jpg')) {
           dom.querySelector('.lightbox__container').innerHTML = `
             <img src="${imgUrl}" alt="${imgTitle}">
             <spa, class="title">${imgTitle}</spa,>
+          `
+        } else {
+          dom.querySelector('.lightbox__container').innerHTML = `
+            <video src="${imgUrl}" alt="${imgTitle}" autoplay controls>
+            </video>
+            <span class="title">${imgTitle}</span>
           `
         }
         dom.querySelector('.lightbox__container').focus()
@@ -90,13 +95,8 @@ export const lightbox = () => {
       })
 
       // Nav au clavier
-      document.addEventListener('keyup', (e) => {
-        if (e.key === 'Escape') {
-          dom.classList.add('fadeOut')
-          window.setTimeout(() => {
-            dom.remove()
-          }, 500)
-        } else if (e.key === 'ArrowLeft') {
+      dom.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
           let index = src.indexOf(imgUrl)
           index--
           if (index < 0) {

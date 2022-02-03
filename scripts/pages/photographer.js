@@ -7,12 +7,13 @@ import { likeIncrement, totalLikes } from '../functions/likesCounters.js'
 import Presentation from '../factories/templates/photographerPresentation.js'
 import { sortBy } from '../functions/sortBy.js'
 import { lightbox } from '../utils/lightbox.js'
+import { escapeButton } from '../functions/escapeButton.js'
 
-const presentationBloc = document.getElementById('presentation-bloc')
-const photographerImg = document.getElementById('photographer-img')
-const gallerySection = document.querySelector('.gallery-section')
-const priceContainer = document.querySelector('.price')
-const photographerName = document.getElementById('photographer__name')
+export const gallerySection = document.querySelector('.gallery-section') // Galerie où s'affichent les images
+const presentationBloc = document.getElementById('presentation-bloc') // Bloc de présentation du photographe
+const photographerImg = document.getElementById('photographer-img') // Div d'affichage de l'image de présentation du photographe
+const priceContainer = document.querySelector('.price') // Affichage du prix journalier
+const photographerName = document.getElementById('photographer__name') // Affichage du nom du photographe dans la modale de contact
 
 let pageID = 0
 let photographers = []
@@ -38,6 +39,7 @@ export const fetchDatas = async () => {
       sortBy(gallery)
       totalLikes()
       likeIncrement()
+      escapeButton()
     })
     .catch((err) => console.error('Erreur :', err))
 }

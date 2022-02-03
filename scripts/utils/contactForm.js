@@ -1,10 +1,12 @@
 /* eslint-disable prefer-regex-literals */
-/* eslint-disable no-unused-vars */
 // DOM
-const presentationBloc = document.getElementById('presentation-bloc')
+export const presentationBloc = document.getElementById('presentation-bloc') // Bloc de présentation du photographe
+export const contactModal = document.getElementById('contact_modal') // Fenêtre modale
+export const modal = document.querySelector('.modal') // Fenêtre modale
+export const photographerInfo = document.querySelector('.photographer-info') // Affichage des like + prix
+const contactButton = document.getElementById('contact__button') // Button "Contactez-moi"
+const closeButton = document.getElementById('close-button') // Button de fermeture de la modale
 const contactForm = document.getElementById('contact-form') // Formulaire de contact
-const contactModal = document.getElementById('contact_modal') // Fenêtre modale
-const modal = document.querySelector('.modal') // Fenêtre modale
 const formData = document.querySelectorAll('.form-data') // Champs du formulaire
 const textControl = document.querySelectorAll('.text-control') // Input du formulaire
 const firstNameInput = document.getElementById('firstname') // Input prénom
@@ -18,20 +20,22 @@ const errorMessage = document.getElementById('error-message') // Erreur message
 const errorSubmit = document.getElementById('error-submit') // Erreur submit
 const sortBy = document.getElementById('sort-by') // Menu de tri de la galerie
 const gallerySection = document.querySelector('.gallery-section') // Section d'affichage de la galerie
-const photographerInfo = document.querySelector('.photographer-info') // Affichage des like + prix
 const submitButton = document.getElementById('submitButton')
 
 // Évènements
-document.addEventListener('keypress', (e) => {
-  if (e.key === 'Escape') {
-    closeModal()
-  }
-})
+
+contactButton.addEventListener('click', displayModal) // Ouverture de la modale
+closeButton.addEventListener('click', closeModal)
 formData[0].addEventListener('change', firstnameValidation) // Validation Prénom
 formData[1].addEventListener('change', lastnameValidation) // Validation Nom
 formData[2].addEventListener('change', emailValidation) // Validation Email
 formData[3].addEventListener('change', messageValidation) // Validation Email
 submitButton.addEventListener('click', formValidation) // Clic sur le bouton submit
+submitButton.addEventListener('click', (e) => {
+  if (e.key === 'Enter') {
+    formValidation()
+  }
+})
 
 function displayModal () {
   contactModal.style.display = 'flex'
@@ -41,7 +45,7 @@ function displayModal () {
   sortBy.setAttribute('aria-hidden', 'true')
   gallerySection.setAttribute('aria-hidden', 'true')
   photographerInfo.setAttribute('aria-hidden', 'true')
-  firstNameInput.focus()
+  closeButton.focus()
 }
 
 function closeModal () {

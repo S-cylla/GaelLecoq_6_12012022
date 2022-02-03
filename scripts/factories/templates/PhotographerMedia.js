@@ -1,3 +1,4 @@
+// Crée le template de la card de chaque media
 export default class PhotographerMedia {
   constructor (media) {
     this._media = media
@@ -21,9 +22,7 @@ export default class PhotographerMedia {
   getVideo () {
     return `
       <article>
-        <video controls>
-            <source src="${this._media.miniature}" type="video/mp4" tabindex="0" class="lightbox-item"  alt="${this._media.alt}">
-        </video>
+        <video src="${this._media.miniature}" tabindex="0" class="lightbox-item" controls alt="${this._media.alt}"></video>
         <div class="media-caption">
             <span class="title">${this._media.title}</span>
             <p class="likes">

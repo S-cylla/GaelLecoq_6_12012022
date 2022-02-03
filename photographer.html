@@ -16,13 +16,13 @@
     <main id="main">
       <section class="photograph-header">
         <div id="presentation-bloc"></div>
-        <button id="contact__button" aria-label="Contact Me" class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button id="contact__button" aria-label="Contact Me" class="contact_button"">Contactez-moi</button>
         <div id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="modalTitle">
           <div class="modal">
             <header>
               <h1 id="modalTitle">Contactez-moi</h1>
               <h1 id="photographer__name"></h1>
-              <button onclick="closeModal()" id="close-button" aria-label="Close Contact form">
+              <button id="close-button" aria-label="Close Contact form">
                 <img src="assets/icons/close.svg" alt="close button"/>
               </button>
             </header>
@@ -80,6 +80,6 @@
 
     <script src="./scripts/pages/photographer.js" type="module"></script>
     <script src="./scripts/functions/dropdown.js" type="module"></script>
-    <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/utils/contactForm.js" type="module"></script>
   </body>
 </html>

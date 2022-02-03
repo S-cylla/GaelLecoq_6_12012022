@@ -1,10 +1,11 @@
 import { sortBy, sortByDate, sortByPopularity, sortByTitle } from './sortBy.js'
 
-const sortLabel = document.getElementById('sort-label') // Label du menu déroulant
-const listboxContainer = document.getElementById('listbox-container') // Container de la listbox
+export const sortLabel = document.getElementById('sort-label') // Label du menu déroulant
+export const listboxContainer = document.getElementById('listbox-container') // Container de la listbox
 const listbox = document.getElementById('options-list') // Ul de la liste des options
-const firstOption = listbox.firstElementChild
+const firstOption = listbox.firstElementChild // 1er enfant de la liste des options
 
+// Au clic ou à l'appui sur "Entrée", ouvre ou ferme le menu déroulant
 function dropdown () {
   sortLabel.addEventListener('click', () => activeToggle('Popularité'))
   listboxContainer.addEventListener('keypress', dropD)
@@ -19,7 +20,7 @@ function dropD (e) {
   }
 }
 
-export default function activeToggle (value) {
+export function activeToggle (value) {
   if (!sortLabel.classList.contains('active')) {
     listboxContainer.setAttribute('aria-expanded', 'true')
     sortLabel.classList.add('active')
@@ -29,10 +30,11 @@ export default function activeToggle (value) {
     sortLabel.classList.remove('active')
     sortLabel.textContent = value
     listboxContainer.setAttribute('aria-expanded', 'false')
-    sortLabel.removeEventListener('keydown', keyboardNav)
+    listboxContainer.removeEventListener('keydown', keyboardNav)
   }
 }
 
+// Navigation au clavier dans le menu déroulant
 function keyboardNav (e) {
   e.preventDefault()
   let activeElement = document.activeElement
@@ -54,11 +56,6 @@ function keyboardNav (e) {
     }
     activeElement.setAttribute('aria-selected', 'true')
     activeElement.focus()
-  } else if (e.key === 'Escape') {
-    if (sortLabel.classList.contains('active')) {
-      activeToggle('Popularité')
-    }
-    listboxContainer.focus()
   } else if (e.key === 'Enter') {
     if (!sortLabel.classList.contains('active')) {
       activeToggle('Popularité')

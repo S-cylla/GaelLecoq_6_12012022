@@ -1,3 +1,4 @@
+// Récupère les informations des photographes contenues dans le JSON
 export default class Photographer {
   constructor (data) {
     this._name = data.name

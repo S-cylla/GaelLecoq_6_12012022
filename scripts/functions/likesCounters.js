@@ -1,6 +1,6 @@
-// Incrémente le nombre de likes à chaque clic
+// Incrémente le nombre de likes à chaque clic ou appui sur "Entrée"
 export function likeIncrement () {
-  const likeIcon = document.querySelectorAll('.like-icon')
+  const likeIcon = document.querySelectorAll('.like-icon') // Récupère toutes les like-icon
   likeIcon.forEach((heart) => {
     heart.addEventListener('click', () => {
       let likesNumber = parseInt(heart.previousElementSibling.innerHTML)

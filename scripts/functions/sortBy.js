@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
+
+// Tri des médias par popularité, date ou titre
+
 import { createGallery, gallery } from '../pages/photographer.js'
-import activeToggle from './dropdown.js'
+import { activeToggle } from './dropdown.js'
 import { likeIncrement } from './likesCounters.js'
 import { lightbox } from '../utils/lightbox.js'
 

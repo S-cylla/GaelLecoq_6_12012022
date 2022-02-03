@@ -27,7 +27,7 @@ Pages photographes :
 		. Vérifier validité des champs avant envoi --OK
 Accessibilité : 
 	. Photos doivent comporter des descriptions textuelles (les inclure dans la page) --OK
-	. Nav au clavier 
+	. Nav au clavier --OK
 	. HTML sémantique --OK
 	. ARIA pour chaque élément personnalisé --OK
 	. Code passe validation AChecker sans "known issues" --OK
@@ -36,6 +36,3 @@ Accessibilité :
 JSON : ajouter champ de description pour chaque image (pour les lecteurs d'écran) --OK
 
 
-ISSUES : 
-	. contactForm.js : 
-		. Echap

@@ -1,3 +1,4 @@
+// Récupère les informations des photographes contenues dans le JSON
 export default class PhotographerGallery {
   constructor (media) {
     this._id = media.id
