@@ -2,13 +2,17 @@
 
 import { escapeButton } from '../functions/escapeButton.js'
 import { gallerySection } from '../pages/photographer.js'
-import { contactModal, modal, photographerInfo, presentationBloc } from './contactForm.js'
+import {
+  contactModal,
+  modal,
+  photographerInfo,
+  presentationBloc
+} from './contactForm.js'
 
 export const lightbox = () => {
   const sortBy = document.getElementById('sort-by')
   const images = document.querySelectorAll('.lightbox-item')
-  console.log(images)
-  images.forEach(image => {
+  images.forEach((image) => {
     image.addEventListener('keypress', keyboardLightbox)
     image.addEventListener('click', openLightbox)
 
@@ -20,7 +24,9 @@ export const lightbox = () => {
 
     function openLightbox () {
       let imgUrl = image.src
-      let imgTitle = image.alt ? image.alt : image.nextElementSibling.firstElementChild.textContent
+      let imgTitle = image.alt
+        ? image.alt
+        : image.nextElementSibling.firstElementChild.textContent
       const links = Array.from(document.querySelectorAll('.lightbox-item'))
       const src = links.map((link) => link.src)
       let index = src.indexOf(imgUrl)
@@ -48,7 +54,6 @@ export const lightbox = () => {
       escapeButton()
 
       function loadImg (imgUrl, imgTitle) {
-        console.log(imgUrl)
         if (imgUrl.includes('jpg')) {
           dom.querySelector('.lightbox__container').innerHTML = `
             <img src="${imgUrl}" alt="${imgTitle}">
@@ -56,7 +61,7 @@ export const lightbox = () => {
           `
         } else {
           dom.querySelector('.lightbox__container').innerHTML = `
-            <video src="${imgUrl}" alt="${imgTitle}" autoplay controls>
+            <video src="${imgUrl}" alt="${imgTitle}" autoplay controls tabindex="1">
             </video>
             <span class="title">${imgTitle}</span>
           `
