@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 /* eslint-disable no-unused-expressions */
-import Photographer from '../factories/models/photograph.js'
-import PhotographerCard from '../factories/templates/photographerCard.js'
+import Photographer from '../models/photograph.js'
+import PhotographerCard from '../templates/photographerCard.js'
 
 const photographersSection = document.querySelector('.photographer_section')
 

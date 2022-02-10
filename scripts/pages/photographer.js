@@ -1,13 +1,13 @@
 'use strict'
 // Code JavaScript lié à la page photographer.html
 
-import PhotographerGallery from '../factories/models/photographerGallery.js'
-import PhotographerMedia from '../factories/templates/PhotographerMedia.js'
+import PhotographerGallery from '../models/photographerGallery.js'
 import { likeIncrement, totalLikes } from '../functions/likesCounters.js'
-import Presentation from '../factories/templates/photographerPresentation.js'
+import Presentation from '../templates/photographerPresentation.js'
 import { sortBy } from '../functions/sortBy.js'
 import { lightbox } from '../utils/lightbox.js'
 import { escapeButton } from '../functions/escapeButton.js'
+import { MediaFactory } from '../factories/MediaFactory.js'
 
 export const gallerySection = document.querySelector('.gallery-section') // Galerie où s'affichent les images
 const presentationBloc = document.getElementById('presentation-bloc') // Bloc de présentation du photographe
@@ -72,14 +72,8 @@ export function createGallery (array) {
   gallerySection.innerHTML = ''
   array.forEach((element) => {
     const photographerGallery = new PhotographerGallery(element)
-    const PhotographerMediaTemplate = new PhotographerMedia(
-      photographerGallery
-    )
-    if (element.image) {
-      gallerySection.innerHTML += PhotographerMediaTemplate.getImg()
-    } else {
-      gallerySection.innerHTML += PhotographerMediaTemplate.getVideo()
-    }
+    const PhotographerMediaTemplate = new MediaFactory(photographerGallery)
+    gallerySection.innerHTML += PhotographerMediaTemplate.getMedia()
   })
 }
 
